@@ -1,4 +1,4 @@
-# 📈 LSTM para Previsão de Preços de Criptomoeda
+# 📈 LSTM para Previsão de Preços de Ativos
 
 ## 📌 Descrição
 Este projeto implementa um modelo **LSTM (Long Short-Term Memory)** para prever os preços de fechamento de uma criptomoeda (Bitcoin) com base em dados históricos.  
