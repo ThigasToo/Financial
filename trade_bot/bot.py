@@ -9,10 +9,11 @@ import openai
 
 DATA_FILE = "equities.json"
 
-key="PKBY5TIGZLOVQXOXWE0J"
-secret_key="w9L6eKZpnM7iYdLyiLjafenc3jaN2aNjQJNCpi5o"
+key="SUA_ALPACA_KEY"
+secret_key="SUA_ALPACA_SECRET"
 BASE_URL = "https://paper-api.alpaca.markets"
-api = tradeapi.REST(key, secret_key, BASE_URL, api_version="v2")
+
+openai.api_key = "SUA_CHAVE_OPENAI"
 
 
 def fetch_portfolio():
@@ -353,4 +354,5 @@ if __name__ == '__main__':
     app = TradingBotGUI(root)
     root.protocol("WM_DELETE_WINDOW", app.on_close)
     root.mainloop()
+
 
