@@ -41,11 +41,6 @@ def fetch_open_orders():
         })
     return open_orders
 
-def fetch_mock_api(symbol):
-    return {
-        "price" : 100
-    }
-
 
 def chatgpt_response(message):
     portfolio_data = fetch_portfolio()
@@ -85,14 +80,6 @@ class TradingBotGUI:
         self.symbol_entry = tk.Entry(self.form_frame)
         self.symbol_entry.grid(row=0, column=1)
 
-        #tk.Label(self.form_frame, text="Levels:").grid(row=0, column=2)
-        #self.levels_entry = tk.Entry(self.form_frame)
-        #self.levels_entry.grid(row=0, column=3)
-
-        #tk.Label(self.form_frame, text="Drawdown%:").grid(row=0, column=4)
-        ##self.drawdown_entry = tk.Entry(self.form_frame)
-        #self.drawdown_entry.grid(row=0, column=5)
-
         self.add_button = tk.Button(self.form_frame, text="Add Equity", command=self.add_equity)
         self.add_button.grid(row=0, column=6)
 
@@ -129,10 +116,6 @@ class TradingBotGUI:
 
         # Auto-refreshing
         self.auto_update()  # inicia o loop de atualização
-        #self.running = True
-        #self.auto_update_thread = threading.Thread(target=self.auto_update, daemon=True)
-        #self.auto_update_thread.start()
-
     
     def add_equity(self):
         symbol = self.symbol_entry.get().upper()
@@ -288,26 +271,6 @@ class TradingBotGUI:
 
         self.save_equities()
         self.refresh_table()
-
-
-    def place_order(self, symbol, price, level):
-        if -level in self.equities[symbol]['levels'] or '-1' in self.equities[symbol]['levels'].keys():
-            return
-        
-        try:
-            api.submit_order(
-                symbol=symbol,
-                qty=1,
-                side='buy',
-                type='limit',
-                time_in_force='gtc',
-                limit_price=price
-            )
-            self.equities[symbol]['levels'][-level] = price
-            del self.equities[symbol]['levels'][level]
-            print(f"Placed order for {symbol}@{price}")
-        except Exception as e:
-            messagebox.showerror("Order Error", f"Error placing order {e}")
             
     def refresh_table(self):
             for row in self.tree.get_children():
@@ -327,9 +290,6 @@ class TradingBotGUI:
     def auto_update(self):
             self.trade_systems()
             self.root.after(5000, self.auto_update)
-            #while self.running:
-            #    time.sleep(5)
-            #    self.trade_systems()
     
     def save_equities(self):
             with open(DATA_FILE, 'w') as f:
@@ -353,6 +313,7 @@ if __name__ == '__main__':
     app = TradingBotGUI(root)
     root.protocol("WM_DELETE_WINDOW", app.on_close)
     root.mainloop()
+
 
 
 
