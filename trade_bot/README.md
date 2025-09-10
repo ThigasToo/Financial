@@ -39,4 +39,20 @@ Um **Trading Bot com interface gráfica em Tkinter** que utiliza a API da **Alpa
 
 <img width="510" height="405" alt="Captura de tela 2025-09-10 151955" src="https://github.com/user-attachments/assets/0d4f18ae-62c8-43ca-94cf-214bd4f0e09c" />
 
+## 📊 Funcionalidades da Interface
 
+- Adicionar Equity → Insere um ativo para monitoramento.
+- Tabela de Ativos → Exibe os detalhes do portfólio em tempo real.
+- Toggle System → Liga/desliga o sistema de negociação para o ativo selecionado.
+- Remove Equity → Remove um ativo do monitoramento.
+- Chat com IA → Permite enviar perguntas para análise de portfólio.
+
+## ⚠️ Aviso
+
+Este projeto é educacional e utiliza a API paper trading da Alpaca.
+Não utilize com contas reais sem compreender os riscos do mercado financeiro.
+
+## 📜 Licença
+
+Este projeto está sob a licença MIT.
+Sinta-se livre para usar, modificar e compartilhar.
