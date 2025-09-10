@@ -3,7 +3,6 @@ from tkinter import ttk, messagebox
 import json
 import time
 import threading
-import random
 import alpaca_trade_api as tradeapi
 import openai
 
@@ -354,5 +353,6 @@ if __name__ == '__main__':
     app = TradingBotGUI(root)
     root.protocol("WM_DELETE_WINDOW", app.on_close)
     root.mainloop()
+
 
 
