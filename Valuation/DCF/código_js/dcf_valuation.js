@@ -6,7 +6,7 @@
  * 1. CAPM - Custo de Capital Próprio
  * re = rf + beta * (rm - rf) + riscoPais (opcional)
  */
-function calcCAPM(rf, beta, marketRiskPremium, countryRisk = 0) {
+function calcCAPM(rf, beta, marketRiskPremium, countryRisk) {
   return rf + beta * marketRiskPremium + countryRisk;
 }
 
@@ -116,3 +116,4 @@ function calcDCFValuation(FCFF0, growthRate, WACC, g, years) {
   console.log("Enterprise Value:", valuation.enterpriseValue.toFixed(2));
   console.log("Detalhes:", valuation);
 })();
+
